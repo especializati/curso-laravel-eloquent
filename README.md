@@ -1,37 +1,24 @@
 
-# Setup Docker Para Projetos Laravel
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+# Curso Laravel Eloquent ORM
+[O Curso](https://academy.especializati.com.br/curso/laravel-eloquent)
 
 ### Passo a passo
-Clone Repositório
+Clone o Repositório
 ```sh
-git clone https://github.com/especializati/setup-docker-laravel.git my-project
-cd my-project/
-```
-
-
-Alterne para a branch laravel 8.x
-```sh
-git checkout laravel-8
-```
-
-
-Remova o versionamento
-```sh
-rm -rf .git/
+git clone https://github.com/especializati/curso-laravel-eloquent.git
 ```
 
 
 Crie o Arquivo .env
 ```sh
-cd example-project/
+cd curso-laravel-eloquent/
 cp .env.example .env
 ```
 
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME=EspecializaTi
+APP_NAME="Curso Laravel Eloquent - ETI"
 APP_URL=http://localhost:8180
 
 DB_CONNECTION=mysql

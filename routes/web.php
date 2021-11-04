@@ -6,6 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
+Route::get('/insert2', function (Request $request) {
+    $post = Post::create($request->all());
+
+    dd($post);
+
+    $posts = Post::get();
+
+    return $posts;
+});
+
 Route::get('/insert', function (Post $post, Request $request) {
     $post->user_id = 1;
     $post->title = $request->name;

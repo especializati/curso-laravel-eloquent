@@ -15,7 +15,7 @@ class Post extends Model
     protected $fillable = ['user_id', 'title', 'body', 'date'];
 
     protected $casts = [
-        'date' => 'date',
+        'date' => 'datetime:d/m/Y',
         'active' => 'boolean'
     ];
 
@@ -46,4 +46,9 @@ class Post extends Model
     // {
     //     return Carbon::make($value)->format('d/m/Y');
     // }
+
+    public function setDateAttribute($value)
+    {
+        $this->attributes['date'] = Carbon::make($value)->format('Y-m-d');
+    }
 }

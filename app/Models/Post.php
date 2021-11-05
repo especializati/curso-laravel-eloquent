@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Accessors\DefaultAccessors;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,6 +13,11 @@ class Post extends Model
     use HasFactory, SoftDeletes, DefaultAccessors;
 
     protected $fillable = ['user_id', 'title', 'body', 'date'];
+
+    protected $casts = [
+        'date' => 'date',
+        'active' => 'boolean'
+    ];
 
     // protected $table = 'postagens';
     // protected $primaryKey = 'id_postagem';
@@ -34,5 +40,10 @@ class Post extends Model
     // public function getTitleAndBodyAttribute()
     // {
     //     return $this->title . ' - ' . $this->body; 
+    // }
+
+    // public function getDateAttribute($value)
+    // {
+    //     return Carbon::make($value)->format('d/m/Y');
     // }
 }

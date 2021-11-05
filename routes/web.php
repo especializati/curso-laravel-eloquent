@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 Route::get('/accessor', function () {
     $post = Post::first();
 
-    return $post->title_and_body;
+    return $post;
 });
 
 Route::get('/delete2', function () {

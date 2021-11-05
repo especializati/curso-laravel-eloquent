@@ -23,7 +23,7 @@ class Post extends Model
     ];
 
     protected $dispatchesEvents = [
-        'created' => PostCreated::class,
+        // 'created' => PostCreated::class,
     ];
 
     protected static function booted()

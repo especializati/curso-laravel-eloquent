@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Accessors\DefaultAccessors;
+use App\Scopes\YearScope;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,9 +23,10 @@ class Post extends Model
 
     protected static function booted()
     {
-        static::addGlobalScope('year', function (Builder $builder) {
-            $builder->whereYear('date', Carbon::now()->year);
-        });
+        // static::addGlobalScope('year', function (Builder $builder) {
+        //     $builder->whereYear('date', Carbon::now()->year);
+        // });
+        static::addGlobalScope(new YearScope);
     }
 
     public function scopeLastWeek($query)

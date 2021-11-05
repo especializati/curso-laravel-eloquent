@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
+Route::get('/anonymous-global-scopes', function () {
+    // $posts = Post::get();
+    $posts = Post::withoutGlobalScope('year')->get();
+
+    return $posts;
+});
+
 Route::get('/local-scope', function () {
     // $posts = Post::lastWeek()->get();
     // $posts = Post::today()->get();

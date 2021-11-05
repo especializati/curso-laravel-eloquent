@@ -19,6 +19,25 @@ class Post extends Model
         'active' => 'boolean'
     ];
 
+    public function scopeLastWeek($query)
+    {
+        return $this->whereDate('date', '>=', now()->subDays(4))
+                    ->whereDate('date', '<=', now()->subDays(1));
+    }
+
+    public function scopeToday($query)
+    {
+        return $this->whereDate('date', now());
+    }
+
+    public function scopeBetween($query, $firtDate, $lastDate)
+    {
+        $firtDate = Carbon::make($firtDate)->format('Y-m-d');
+        $lastDate = Carbon::make($lastDate)->format('Y-m-d');
+        return $this->whereDate('date', '>=', $firtDate)
+                    ->whereDate('date', '<=', $lastDate);
+    }
+
     // protected $table = 'postagens';
     // protected $primaryKey = 'id_postagem';
     // protected $keyType = 'string';
